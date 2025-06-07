@@ -1,0 +1,240 @@
+:root {
+    --bg-color: #f5f7fa;
+    --text-color: #333;
+    --container-bg: white;
+    --container-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --heading-color: #2c3e50;
+    --textarea-border: #ddd;
+    --button-bg: #3498db;
+    --button-hover: #2980b9;
+    --button-disabled: #95a5a6;
+    --select-border: #ddd;
+    --status-bg: #f8f9fa;
+    --current-word: #e74c3c;
+    --punctuation: #27ae60;
+    --paragraph-marker: #9b59b6;
+    --progress-bg: #eee;
+    --progress-fill: #3498db;
+    --file-input-bg: #f0f0f0;
+}
+
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --container-bg: #2d2d2d;
+    --container-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --heading-color: #7fdbff;
+    --textarea-border: #444;
+    --button-bg: #0074d9;
+    --button-hover: #0056b3;
+    --button-disabled: #555;
+    --select-border: #444;
+    --status-bg: #333;
+    --current-word: #ff851b;
+    --punctuation: #2ecc40;
+    --paragraph-marker: #b10dc9;
+    --progress-bg: #444;
+    --progress-fill: #0074d9;
+    --file-input-bg: #444;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--container-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--container-shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+h1 {
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 30px;
+    transition: color 0.3s;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border: 1px solid var(--textarea-border);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 16px;
+    margin-bottom: 20px;
+    resize: vertical;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+button:disabled {
+    background-color: var(--button-disabled);
+    cursor: not-allowed;
+}
+
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--select-border);
+    font-family: inherit;
+    font-size: 14px;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-container {
+    margin-top: 20px;
+}
+
+.status {
+    padding: 15px;
+    background-color: var(--status-bg);
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.current-word {
+    font-weight: bold;
+    color: var(--current-word);
+    transition: color 0.3s;
+}
+
+.punctuation {
+    color: var(--punctuation);
+    font-style: italic;
+    transition: color 0.3s;
+}
+
+.paragraph-marker {
+    color: var(--paragraph-marker);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: var(--progress-bg);
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--progress-fill);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.dark-mode-toggle {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--textarea-border);
+    margin-left: auto;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--status-bg);
+}
+
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.file-input-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: var(--file-input-bg);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.file-input-label:hover {
+    background-color: #e0e0e0;
+}
+
+.dark-mode .file-input-label:hover {
+    background-color: #555;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-type-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.file-type-btn {
+    background-color: var(--status-bg);
+    color: var(--text-color);
+}
+
+.file-type-btn.active {
+    background-color: var(--button-bg);
+    color: white;
+}
+
+.ocr-progress {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--punctuation);
+}
