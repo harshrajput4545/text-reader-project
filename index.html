@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Text Reader with PDF & Image Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- PDF.js library for PDF processing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <!-- Tesseract.js for OCR -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pro Text Reader with PDF & Image Support</h1>
+        
+        <div class="file-type-selector">
+            <button id="textTabBtn" class="file-type-btn active">Text</button>
+            <button id="pdfTabBtn" class="file-type-btn">PDF</button>
+            <button id="imageTabBtn" class="file-type-btn">Image</button>
+        </div>
+        
+        <div id="textInputSection">
+            <textarea id="textInput" placeholder="Enter or paste your text here..."></textarea>
+        </div>
+        
+        <div id="pdfInputSection" style="display: none;">
+            <div class="file-input-container">
+                <label for="pdfInput" class="file-input-label">
+                    📄 Choose PDF File
+                    <input type="file" id="pdfInput" class="file-input" accept=".pdf">
+                </label>
+                <div id="pdfStatus" class="status" style="display: none;"></div>
+                <div id="pdfPages" style="display: none;">
+                    <label for="pageSelect">Page:</label>
+                    <select id="pageSelect"></select>
+                </div>
+            </div>
+        </div>
+        
+        <div id="imageInputSection" style="display: none;">
+            <div class="file-input-container">
+                <label for="imageInput" class="file-input-label">
+                    🖼️ Choose Image File
+                    <input type="file" id="imageInput" class="file-input" accept="image/*">
+                </label>
+                <div id="ocrStatus" class="ocr-progress" style="display: none;"></div>
+                <div id="imagePreview" style="margin-top: 10px; display: none;">
+                    <img id="previewImage" style="max-width: 100%; max-height: 200px;">
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="playBtn">▶️ Play</button>
+            <button id="pauseBtn" disabled>⏸️ Pause</button>
+            <button id="stopBtn" disabled>⏹️ Stop</button>
+            <button id="repeatBtn" disabled>🔁 Repeat</button>
+            
+            <select id="voiceSelect">
+                <option value="">Default Voice</option>
+            </select>
+            
+            <div class="speed-control">
+                <span>Speed:</span>
+                <select id="speedSelect">
+                    <option value="0.5">0.5x</option>
+                    <option value="0.75">0.75x</option>
+                    <option value="1" selected>1x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                </select>
+            </div>
+
+            <button id="darkModeBtn" class="dark-mode-toggle">🌙 Dark Mode</button>
+        </div>
+        
+        <div class="status-container">
+            <div id="status" class="status">Ready to read.</div>
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
